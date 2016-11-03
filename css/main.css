@@ -1,0 +1,43 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+.file-list-ribon {
+    margin: 0 3px 0 15px;
+}
+
+.file-list-ribon .pull-right {
+    margin-top: 20px;
+}
+
+.file-list-ribon .pagination {
+    margin: 0;
+    vertical-align: middle;
+}
+
+/*.file-list {*/
+    /*!*padding-right: 10px;*!*/
+    /*margin: 0 3px 0 15px;*/
+/*}*/
+.file-list-item {
+    border-bottom: 1px dashed lightgray;
+    /*margin-right: 3px;*/
+    margin: 0 3px 0 15px;
+}
+
+.file-list-item:hover {
+    background: green;
+}
+
+
+
+
+
+
+
+
+
+
+
