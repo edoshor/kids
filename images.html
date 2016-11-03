@@ -13,13 +13,90 @@
             padding-top: 50px;
             padding-bottom: 20px;
         }
+
+        .square-1 {
+            width: 256px;
+            height: 256px;
+            background: green;
+            display: inline-block;
+        }
+
+        .square-2 {
+            width: 128px;
+            height: 128px;
+            background: yellow;
+            display: inline-block;
+        }
+
+        .square-3 {
+            width: 64px;
+            height: 64px;
+            background: purple;
+            display: inline-block;
+        }
+
+        .square-4 {
+            width: 32px;
+            height: 32px;
+            background: blue;
+            display: inline-block;
+        }
+
+        .square-5 {
+            width: 16px;
+            height: 16px;
+            background: red;
+            display: inline-block;
+        }
     </style>
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="css/main.css">
 
     <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <script type="text/javascript">
+        function shapes(arr) {
+            var s = "";
+            for (var i = 0; i < arr.length; i++) {
+                s += "<div class=\"square-" + arr[i] + "\"></div>"
+            }
+            return s
+        }
+
+        function sorted() {
+            document.getElementById('shapes').innerHTML = shapes([1, 2, 3, 4, 5]);
+        }
+
+        function sortedReverse() {
+            document.getElementById('shapes').innerHTML = shapes([5, 4, 3, 2, 1]);
+        }
+
+        function shuffle(array) {
+            var currentIndex = array.length, temporaryValue, randomIndex;
+
+            // While there remain elements to shuffle...
+            while (0 !== currentIndex) {
+
+                // Pick a remaining element...
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex -= 1;
+
+                // And swap it with the current element.
+                temporaryValue = array[currentIndex];
+                array[currentIndex] = array[randomIndex];
+                array[randomIndex] = temporaryValue;
+            }
+
+            return array;
+        }
+
+        function sortedRandom() {
+            document.getElementById('shapes').innerHTML = shapes(shuffle([1, 2, 3, 4, 5]));
+        }
+
+
+    </script>
 </head>
-<body>
+<body onload="sorted()">
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -59,12 +136,31 @@
             <div class="list-group">
                 <a href="computers.html" class="list-group-item">Computers</a>
                 <a href="clock.html" class="list-group-item">Clock</a>
-                <a href="images.html" class="list-group-item">Images</a>
+                <a href="images.html" class="list-group-item active">Images</a>
                 <a href="done.html" class="list-group-item">Done</a>
             </div>
         </div>
         <div class="col-md-10 file-list">
-            <h1>Welcome</h1>
+            <h1>Images</h1>
+            <br>
+            <br>
+            <img src="img/chair.png">
+            <img src="img/tree.png">
+            <img src="img/lion.png">
+            <img src="img/friends.png" width="256px" height="256px">
+            <br>
+            <br>
+            <h1>Shapes</h1>
+            <br>
+            <br>
+            <div id="shapes" width="100%"></div>
+            <br>
+            <br>
+            <div id="buttons">
+                <button class="btn btn-lg" onclick="sorted()">Sorted</button>
+                <button class="btn btn-lg btn-info" onclick="sortedReverse()">Reverse</button>
+                <button class="btn btn-lg btn-success" onclick="sortedRandom()">Shuffle</button>
+            </div>
         </div>
     </div>
 
